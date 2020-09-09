@@ -1,6 +1,13 @@
 const fs = require('fs');
+const mysql = require('mysql');
 const Discord = require('discord.js');
-const { prefix, token } = require('./config.json');
+const { config } = require('./config.json');
+
+var con = mysql.createConnection({
+  host: config.host,
+  user: config.db_user,
+  password: config.db_pass
+});
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -19,6 +26,8 @@ client.once('ready', () => {
 	client.user.setActivity('Your Favorite Songs', { type: 'LISTENING' });
 });
 
+con.connect(function(err) {
+  if (err) throw err;
 client.on('message', message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -41,7 +50,7 @@ client.on('message', message => {
 		let reply = `You didn't provide any arguments, ${message.author}!`;
 
 		if (command.usage) {
-			reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
+			reply += `\nThe proper usage would be: \`${config.prefix}${command.name} ${command.usage}\``;
 		}
 
 		return message.channel.send(reply);
@@ -74,4 +83,5 @@ client.on('message', message => {
 		message.reply('there was an error trying to execute that command!');
 	}
 });
-client.login(token);
+});
+client.login(config.token);
