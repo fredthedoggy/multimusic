@@ -7,6 +7,7 @@ var con = mysql.createConnection({
   host: config.host,
   user: config.db_user,
   password: config.db_pass
+  database: "bots"
 });
 
 const client = new Discord.Client();
