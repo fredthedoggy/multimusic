@@ -2,11 +2,8 @@
   "prefix": "*",
   "token": "PUT_TOKEN_HERE",
   "youtube-api-key": "PUT_KEY_HERE",
-  {
-    "host": "mysql database host",
-    "port": "mysql database port",
-    "db_name": "mysql database name",
-    "db_user": "mysql database user",
-    "db_pass": "mysql database password"
-  }
+  "host": "mysql database host"
+  "db_name": "mysql database name",
+  "db_user": "mysql database user",
+  "db_pass": "mysql database password"
 }
