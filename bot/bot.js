@@ -7,7 +7,7 @@ const { config } = require('./config.json');
 var con = mysql.createConnection({
   host: config.host,
   user: config.db_user,
-  password: config.db_pass
+  password: config.db_pass,
   database: "bots"
 });
 
