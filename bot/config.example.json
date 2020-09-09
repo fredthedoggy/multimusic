@@ -7,4 +7,5 @@
     "db_name": "mysql database name",
     "db_user": "mysql database user",
     "db_pass": "mysql database password"
+  }
 }
